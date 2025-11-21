@@ -1,0 +1,13 @@
+# Ignore these directories: 
+RISC_DO_Optode_documents/
+RISC_DO_Optode_output_data/
+RISC_DO_Optode_output_figures/
+RISC_DO_Optode_rawdata/
+
+RISC_DO_Optode_scripts/oxygen_matlab_code_FilipaCarvalho_20251112/
+RISC_DO_Optode_scripts/__pycache__/
+.DS_Store
+
+.ipynb_checkpoints
+
+

@@ -1,0 +1,43 @@
+# Settings for the Dissolved Oxygen pipeline
+
+# ==========================================================================
+# General 
+
+# Sensor time 
+sensor_type = "aa4831"
+
+
+# ==========================================================================
+# Geometric lag alignment
+
+# Default geometric time lag from 
+geo_time_lag = 3.9450 # Default from Woo & Gourcurr, 2023 - IMOS. Set to "derive" if geometric time lag needs to be derived from glider pitch and vertical velocity
+
+# Distance between CTD and DO optode on the glider
+distance_CTD_optode = 90 # in cm                                              }
+
+# Default geometric time lag from 
+geo_time_lag = 3.9450 # Default from Woo & Gourcurr, 2023 - IMOS. Set to "derive" if geometric time lag needs to be derived from glider pitch and vertical velocity
+
+# Distance between CTD and DO optode on the glider
+distance_CTD_optode = 90 # in cm 
+
+
+# ==========================================================================
+# Coefficients for corrections (not included in manufacturer calibration sheets) 
+
+# Dictionary with Pcoef1 per sensor - TO DO: complete 
+Pcoef1_dict = {"aa4831": 0.1, # deg
+               "sbe63": 0.115, # usec
+              }
+
+# Pressure correction coefficient
+Pcoef1 = Pcoef1_dict[sensor_type] 
+
+
+# ==========================================================================
+# Variable variables - can be changed during the runs
+
+uncal_phase = "BPHASE" # default
+uncal_phase_pcorr = "UNCAL_PHASE_Pcorr" # default
+cal_phase = "DPHASE_DOXY" # default
