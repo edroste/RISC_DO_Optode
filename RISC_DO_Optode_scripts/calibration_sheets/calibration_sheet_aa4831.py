@@ -165,3 +165,21 @@ FoilCalCoef17 = 0
 FoilCalCoef18 = 0
 FoilCalCoef19 = 0
 
+
+
+# AANDERAA 3830, 3835, 3930, 3975, 4130, 4175 (and also 3930?!) ONLY ################################################################## 
+
+# K0 and K1 Coefficients 
+K0_coeffs0 = 0
+K0_coeffs1 = 0
+K0_coeffs2 = 0
+K0_coeffs3 = 0
+
+K1_coeffs0 = 0
+K1_coeffs1 = 0
+K1_coeffs2 = 0
+K1_coeffs3 = 0
+
+# Temperature-independent F1 and F2 coefficients
+F1 = 0
+F2 = 0
