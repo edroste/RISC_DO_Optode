@@ -3,8 +3,8 @@
 # ==========================================================================
 # General 
 
-# Sensor time 
-sensor_type = "aa4831"
+# Sensor type 
+sensor_type = "" #
 
 
 # ==========================================================================
@@ -28,7 +28,9 @@ distance_CTD_optode = 90 # in cm
 
 # Dictionary with Pcoef1 per sensor - TO DO: complete 
 Pcoef1_dict = {"aa4831": 0.1, # deg
+               "aa3830": 0.1, # deg
                "sbe63": 0.115, # usec
+               "": None, # 
               }
 
 # Pressure correction coefficient
@@ -38,6 +40,6 @@ Pcoef1 = Pcoef1_dict[sensor_type]
 # ==========================================================================
 # Variable variables - can be changed during the runs
 
-uncal_phase = "BPHASE" # default
-uncal_phase_pcorr = "UNCAL_PHASE_Pcorr" # default
-cal_phase = "DPHASE_DOXY" # default
+uncal_phase_doxy = "UNCAL_PHASE_DOXY" # default
+uncal_phase_doxy_pcorr = "UNCAL_PHASE_DOXY_PCORR" # default
+calphase_doxy = "CAL_PHASE_DOXY" # default
