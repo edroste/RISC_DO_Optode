@@ -36,6 +36,9 @@ Pcoef1_dict = {"aa4831": 0.1, # deg
 # Pressure correction coefficient
 Pcoef1 = Pcoef1_dict[sensor_type] 
 
+# Variable determining if first pressure correction has been applied 0 = no, 1 = yes
+
+first_pcorr_applied = 0
 
 # ==========================================================================
 # Variable variables - can be changed during the runs
