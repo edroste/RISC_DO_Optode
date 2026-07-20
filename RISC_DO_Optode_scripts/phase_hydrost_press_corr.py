@@ -1,4 +1,4 @@
-def phase_hydrost_press_corr(UNCAL_PHASE_DOXY, PRES_geoshift, Pcoef1=None, optode_pipeline_settings): 
+def phase_hydrost_press_corr(UNCAL_PHASE_DOXY, PRES_geoshift, optode_pipeline_settings, Pcoef1 = None): 
     """
     Correcting optode phase shift for hydrostatic pressure effect on luminescence lifetime. 
     Following best practice protocols, including Pcoef1 = 0.1 deg (Bittig et al., 2015). 
@@ -28,17 +28,27 @@ def phase_hydrost_press_corr(UNCAL_PHASE_DOXY, PRES_geoshift, Pcoef1=None, optod
         Processing Argo OXYGEN data at the DAC level, v2.3.4, http://dx.doi.org/10.13155/39795
     """
 
-    # Pressure correction coefficient (Pcoef1) differs per sensor
-    if not Pcoef1: # If Pcoef1 argument = None, apply Pcoef1 from dictionary based on sensor type
-        Pcoef1 = optode_pipeline_settings.Pcoef1_dict[optode_pipeline_settings.sensor_type]
-        print("Hydrostatic pressure correction done with Pcoef1 = ", Pcoef1, "(", optode_pipeline_settings.sensor_type,")")
-    else:
-        print("Hydrostatic pressure correction done with GIVEN Pcoef1 = ", Pcoef1)
+    if optode_pipeline_settings.uncal_phase_doxy not in ds.data_vars: 
+        
+        UNCAL_PHASE_DOXY_PCORR = np.float("NaN")
+        optode_pipeline_settings.first_pcorr_applied = 0 # Change first_pcorr_applied to 1
 
-    # Apply hydrostatic pressure correction 
-    UNCAL_PHASE_DOXY_PCORR = UNCAL_PHASE_DOXY + (Pcoef1*PRES_geoshift)/1000
+        raise KeyError(f"{optode_pipeline_settings.uncal_phase_doxy} does not exist in the dataset. This pressure correction can only be applied to uncalibrated optode phase data. ")
+        
 
-    # Change first_pcorr_applied to 1
-    optode_pipeline_settings.first_pcorr_applied = 1
+    else: 
+
+        # Pressure correction coefficient (Pcoef1) differs per sensor
+        if not Pcoef1: # If Pcoef1 argument = None, apply Pcoef1 from dictionary based on sensor type
+            Pcoef1 = optode_pipeline_settings.Pcoef1_dict[optode_pipeline_settings.sensor_type]
+            print("Hydrostatic pressure correction done with Pcoef1 = ", Pcoef1, "(", optode_pipeline_settings.sensor_type,")")
+        else:
+            print("Hydrostatic pressure correction done with GIVEN Pcoef1 = ", Pcoef1)
+    
+        # Apply hydrostatic pressure correction 
+        UNCAL_PHASE_DOXY_PCORR = UNCAL_PHASE_DOXY + (Pcoef1*PRES_geoshift)/1000
+    
+        # Change first_pcorr_applied to 1
+        optode_pipeline_settings.first_pcorr_applied = 1
 
     return UNCAL_PHASE_DOXY_PCORR
