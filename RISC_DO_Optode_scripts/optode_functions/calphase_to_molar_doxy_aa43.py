@@ -1,7 +1,12 @@
-import calculate_air_saturation
-import calculate_delta_p
-import calculate_vapour_pressure 
+import optode_functions.calculate_air_saturation
+import optode_functions.calculate_delta_p
+import optode_functions.calculate_vapour_pressure 
+import optode_functions.oxygen_solubility_garcia_gordon_1992
 
+from optode_functions.calculate_air_saturation import calculate_air_saturation
+from optode_functions.calculate_delta_p import calculate_delta_p
+from optode_functions.calculate_vapour_pressure import calculate_vapour_pressure
+from optode_functions.oxygen_solubility_garcia_gordon_1992 import oxygen_solubility_garcia_gordon_1992
 
 def calphase_to_molar_doxy_aa43_poly(CALPHASE_DOXY, T, S, cal_sheet_aa): 
     """
@@ -123,9 +128,9 @@ def calphase_to_molar_doxy_aa43_poly(CALPHASE_DOXY, T, S, cal_sheet_aa):
         c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25, c26, c27]
     m = [m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m13, m14, 
         m15, m16, m17, m18, m19, m20, m21, m22, m23, m24, m25, m26, m27]
-    n = [n0, cn, n2, n3, n4, n5, n6, n7, n8, n9, n10, n11, n13, n14, 
+    n = [n0, c1, n2, n3, n4, n5, n6, n7, n8, n9, n10, n11, n13, n14, 
         n15, n16, n17, n18, n19, n20, n21, n22, n23, n24, n25, n26, n27]
-    
+
     C_star = oxygen_solubility_garcia_gordon_1992(T = T, S = S) # oxygen solubility (cm3/dm3), calculated from Garcia & Gordon (1992)
     
     delta_p = calculate_delta_p(CALPHASE_DOXY = CALPHASE_DOXY, T = T, C = C, m = m, n = n) # calculate the partial pressure of oxygen (hPa)

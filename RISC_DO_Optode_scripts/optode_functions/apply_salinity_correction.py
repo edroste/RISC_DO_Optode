@@ -1,5 +1,8 @@
-import apply_oxygen_solubility_salinity_correction
-import ph2o_weiss_price_1980 
+import optode_functions.apply_oxygen_solubility_salinity_correction
+import optode_functions.ph2o_weiss_price_1980 
+
+from optode_functions.apply_oxygen_solubility_salinity_correction import apply_oxygen_solubility_salinity_correction
+from optode_functions.ph2o_weiss_price_1980 import ph2o_weiss_price_1980
 
 def apply_salinity_correction(MOLAR_DOXY, T, S, Spreset = 0): 
     """

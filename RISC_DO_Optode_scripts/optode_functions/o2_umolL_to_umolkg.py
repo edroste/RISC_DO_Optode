@@ -1,6 +1,7 @@
-import calculate_potential_density_teos10
+import optode_functions.calculate_potential_density_teos10
+from optode_functions.calculate_potential_density_teos10 import calculate_potential_density_teos10
 
-def o2_umolL_to_umolkg(MOLAR_DOXY, T, S, lon = None, lat = None):
+def o2_umolL_to_umolkg(MOLAR_DOXY, T, S, P, lon = None, lat = None):
     """
     Convert oxygen from µmol/L to µmol/kg using potential density of seawater (kg L-1) referenced to a hydrostatic pressure of 0 dbar and using practical salinity.
 
@@ -14,6 +15,8 @@ def o2_umolL_to_umolkg(MOLAR_DOXY, T, S, lon = None, lat = None):
             Temperature (°C)
         S : array or float
             Practical salinity (psu)
+        P : array or float
+            Pressure (dbar)
         lon : array-like, float
             Longitude -360 to 360 degrees. Required if potential density is calculated according to TEOS10. 
         lat : array-like, float

@@ -1,3 +1,5 @@
+import gsw
+
 def calculate_potential_density_teos10(S, T, P, lon, lat): 
     """
     Calculate potential density of seawater (kg L-1) referenced to a hydrostatic pressure of 0 dbar and using practical salinity.

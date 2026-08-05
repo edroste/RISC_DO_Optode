@@ -1,4 +1,4 @@
-def calculate_dphase_aa(ds, UNCAL_PHASE_DOXY_PCORR, cal_sheet_aa): 
+def calculate_calphase_aa(ds, UNCAL_PHASE_DOXY_PCORR, cal_sheet_aa): 
     """
     Determine DPHASE (i.e., calibrated phase) using 3rd degree polynomial and UNCAL_PHASE_Pcorr. 
 

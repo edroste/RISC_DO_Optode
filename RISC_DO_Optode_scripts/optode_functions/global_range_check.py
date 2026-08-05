@@ -1,3 +1,5 @@
+import numpy as np
+
 def global_range_check(DOXY, TEMP_DOXY):
     """
     Apply global range checks for DOXY and TEMP_DOXY.
@@ -15,15 +17,15 @@ def global_range_check(DOXY, TEMP_DOXY):
             QC flags for TEMP_DOXY (1 = good, 4 = bad).
     """
 
-    doxy = np.asarray(doxy, dtype=float)
-    temp_doxy = np.asarray(temp_doxy, dtype=float)
+    doxy = np.asarray(DOXY, dtype=float)
+    temp_doxy = np.asarray(TEMP_DOXY, dtype=float)
 
     # Initialize QC flags with "1" (good)
-    qc_doxy = np.ones_like(doxy, dtype=int)
-    qc_temp = np.ones_like(temp_doxy, dtype=int)
+    qc_doxy = np.ones_like(DOXY, dtype=int)
+    qc_temp = np.ones_like(TEMP_DOXY, dtype=int)
 
     # Apply global range checks
-    qc_doxy[(doxy < -5) | (doxy > 600)] = 4
-    qc_temp[(temp_doxy < -2.5) | (temp_doxy > 40)] = 4
+    qc_doxy[(DOXY < -5) | (DOXY > 600)] = 4
+    qc_temp[(TEMP_DOXY < -2.5) | (TEMP_DOXY > 40)] = 4
 
     return qc_doxy, qc_temp

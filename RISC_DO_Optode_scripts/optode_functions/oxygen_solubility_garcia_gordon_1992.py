@@ -1,3 +1,5 @@
+import numpy as np
+
 def oxygen_solubility_garcia_gordon_1992(T, S = 35):
     """
     Calculate oxygen solubility C* (cm³/dm³) using Garcia & Gordon (1992).

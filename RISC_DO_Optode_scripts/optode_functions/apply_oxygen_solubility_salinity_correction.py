@@ -1,3 +1,5 @@
+import numpy as np
+
 def apply_oxygen_solubility_salinity_correction(S, T, Spreset=0):
     """
     Compute the salinity correction factor SCorr from Garcia & Gordon (1992), using the Benson & Krause refit.

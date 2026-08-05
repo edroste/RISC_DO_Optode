@@ -1,3 +1,5 @@
+import numpy as np
+
 def ph2o_weiss_price_1980(S, T): 
     """ 
     Calculate the partial pressure of water vapour, following Weiss & Price (1980). 

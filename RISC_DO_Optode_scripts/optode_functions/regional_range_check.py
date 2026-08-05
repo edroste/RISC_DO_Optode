@@ -1,3 +1,6 @@
+import numpy as np
+from matplotlib.path import Path
+
 def regional_range_check(LAT, LON, TEMP_DOXY):
     """
     Apply regional range checks for TEMP_DOXY in the Red Sea and Mediterranean Sea.

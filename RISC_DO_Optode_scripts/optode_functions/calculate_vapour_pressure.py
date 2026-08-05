@@ -1,3 +1,5 @@
+import numpy as np
+
 def calculate_vapour_pressure(T):
     """
     Calculate water vapour pressure (hPa) from temperature (°C), following ... 
