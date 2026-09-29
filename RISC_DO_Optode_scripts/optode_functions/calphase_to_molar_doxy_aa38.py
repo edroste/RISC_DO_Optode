@@ -62,7 +62,8 @@ def calphase_to_molar_doxy_aa38_svu(CALPHASE_DOXY, T, cal_sheet_aa):
     )
 
     # Apply Stern–Volmer equation
-    MOLAR_DOXY = (cal_sheet_aa.F1 / (K0 * CALPHASE_DOXY + cal_sheet_aa.F2) - 1.0) * K1
+    # MOLAR_DOXY = (cal_sheet_aa.F1 / (K0 * CALPHASE_DOXY + cal_sheet_aa.F2) - 1.0) * K1 # < 20260928 - ESD - NOC - commented > 
+    MOLAR_DOXY = ((cal_sheet_aa.F1 / ((CALPHASE_DOXY/K0) - cal_sheet_aa.F2)) - 1.0) * K1 # < 20260928 - ESD - NOC - added > 
 
     return MOLAR_DOXY
 
